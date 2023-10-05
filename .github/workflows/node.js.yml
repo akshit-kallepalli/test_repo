@@ -4,8 +4,11 @@ on: [push]
 
 jobs:
   build:
-    runs-on: macos-latest
-        #sudo apt-get update -y
+          sudo apt-get update -y
+          sudo apt-get install -y mysql-server
+  
+   runs-on: macos-latest
+
     env:
       MYSQL_HOST: "localhost"
       MYSQL_PORT: "9000"
