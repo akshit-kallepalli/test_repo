@@ -5,7 +5,7 @@ on: [push]
 jobs:
   build:
     runs-on: macos-latest
-        sudo apt-get update -y
+        #sudo apt-get update -y
     env:
       MYSQL_HOST: "localhost"
       MYSQL_PORT: "9000"
