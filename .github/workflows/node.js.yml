@@ -27,8 +27,8 @@ jobs:
 
       - name: Install MySQL Server
         run: |
-          sudo apt-get update -y
-          sudo apt-get install -y mysql-server
+          brew update
+          brew install mysql
         env:
           DEBIAN_FRONTEND: noninteractive
             
