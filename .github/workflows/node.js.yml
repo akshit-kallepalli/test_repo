@@ -10,7 +10,7 @@ jobs:
       MYSQL_HOST: "127.0.0.1"
       MYSQL_PORT: "3306"  
       MYSQL_USER: "root"
-      MYSQL_PASSWORD: "qwerty"
+      MYSQL_PASSWORD: "AAvk1818"
       API_URL: "https://127.0.0.1:9000/healthz"
 
     steps:
