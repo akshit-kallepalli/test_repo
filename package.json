@@ -23,6 +23,7 @@
     "uuid": "^9.0.1"
   },
   "devDependencies": {
+    "@sinonjs/commons": "^3.0.0",
     "@sinonjs/referee-sinon": "^11.0.0",
     "chai": "^4.3.10",
     "chai-http": "^4.4.0",
