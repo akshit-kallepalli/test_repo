@@ -220,10 +220,6 @@ app.patch('/v1/assignments/:id', basicAuth, async (req, res) => {
   }
 });
 
-app.get('/healthz', (req, res) => {
-  res.json({ status: 'UP' });
-});
-
 if (process.env.NODE_ENV !== 'test') {
   const PORT = process.env.PORT || 3000;
   app.listen(PORT, () => {
