@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node app.js",
-    "test:integration": "mocha tests/integration.test.js"
+      "test:integration": "jest ../healthz.test.js"
   },
   "keywords": [],
   "author": "",
