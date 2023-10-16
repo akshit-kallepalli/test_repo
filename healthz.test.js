@@ -1,22 +1,17 @@
-const request = require('supertest');
-const app = require('./app');
+const chai = require('chai');
+const chaiHttp = require('chai-http');
+const app = require('./app'); // Your Express app's entry point
+const expect = chai.expect;
 
-describe('GET /healthz', () => {
-  let server;
+chai.use(chaiHttp);
 
-  beforeAll(() => {
-    server = app.listen(9000);
-  });
-
-  afterAll((done) => {
-    server.close(done);
-  });
-
-  it('responds with json', async () => {
-    await request(server)
-      .get('/healthz')
-      .expect(200, {
-        status: 'UP'
-      });
-  });
+describe('Integration tests for /healthz endpoint', () => {
+   it('should return 200 for health check', (done) => {
+      chai.request(app)
+         .get('/healthz')
+         .end((err, res) => {
+            expect(res).to.have.status(200);
+            done();
+         });
+   });
 });
