@@ -1,21 +1,15 @@
-// healthz.test.js
-
 const request = require('supertest');
 const app = require('./app');
 
 describe('GET /healthz', () => {
   let server;
 
-  beforeAll((done) => {
-    server = app.listen(9000, () => {
-      done();
-    });
+  beforeAll(() => {
+    server = app.listen(4000);
   });
 
   afterAll((done) => {
-    server.close(() => {
-      done();
-    });
+    server.close(done);
   });
 
   it('responds with json', async () => {

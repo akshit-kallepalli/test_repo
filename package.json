@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node app.js",
-    "test:integration": "NODE_ENV=test jest '.*.test.js' --detectOpenHandles"
+    "test:integration": "jest --runInBand --forceExit"
   },  
   "keywords": [],
   "author": "",
