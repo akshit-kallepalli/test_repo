@@ -49,4 +49,5 @@ jobs:
         echo "DB_PASSWORD=AAvk1818" >> .env
 
     - name: Run integration tests
-      run: npm test
+      run: npm run test:integration
+      
