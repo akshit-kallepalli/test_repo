@@ -5,7 +5,7 @@ describe('GET /healthz', () => {
   let server;
 
   beforeAll(() => {
-    server = app.listen(4000);
+    server = app.listen(9000);
   });
 
   afterAll((done) => {
