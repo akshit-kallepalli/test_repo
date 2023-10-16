@@ -26,6 +26,7 @@
     "@sinonjs/referee-sinon": "^11.0.0",
     "chai": "^4.3.10",
     "chai-http": "^4.4.0",
-    "jsverify": "^0.8.4"
+    "jsverify": "^0.8.4",
+    "knuth-shuffle": "^1.0.8"
   }
 }
