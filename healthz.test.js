@@ -1,3 +1,5 @@
+// healthz.test.js
+
 const request = require('supertest');
 const app = require('./app');
 
@@ -23,6 +25,5 @@ describe('GET /healthz', () => {
       .expect(200, {
         status: 'UP'
       });
-  }, 10000); 
+  });
 });
-
