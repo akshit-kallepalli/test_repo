@@ -5,7 +5,7 @@
   "scripts": {
     "start": "node app.js",
     "test": "npx mocha --exit './**/*.test.js'"
-  },    
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -21,5 +21,9 @@
     "sequelize": "^6.33.0",
     "supertest": "^6.3.3",
     "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "chai": "^4.3.10",
+    "chai-http": "^4.4.0"
   }
 }
