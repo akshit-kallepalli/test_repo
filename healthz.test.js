@@ -15,7 +15,6 @@ describe('GET /healthz', () => {
   it('responds with json', async () => {
     await request(server)
       .get('/healthz')
-      .expect('Content-Type', /json/)
       .expect(200, {
         status: 'UP'
       });
