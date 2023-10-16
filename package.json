@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node app.js",
-    "test:integration": "jest '.*.test.js' --detectOpenHandles"
+    "test:integration": "NODE_ENV=test jest '.*.test.js' --detectOpenHandles"
   },  
   "keywords": [],
   "author": "",
