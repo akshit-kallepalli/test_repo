@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node app.js",
-    "test:integration": "jest '.*.test.js'"
+    "test:integration": "jest '.*.test.js' --detectOpenHandles"
   },  
   "keywords": [],
   "author": "",
