@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node app.js",
-    "test:integration": "jest '.*.healthz.test.js' --runInBand --detectOpenHandles"
+    "test:integration": "jest '.healthz.test.js' --runInBand --detectOpenHandles"
   },    
   "keywords": [],
   "author": "",
