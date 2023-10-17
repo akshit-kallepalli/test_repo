@@ -128,14 +128,12 @@ app.put('/v1/assignments/:id', basicAuth, async (req, res) => {
     const credentials = Buffer.from(base64Credentials, 'base64').toString('utf-8');
     const [email, password] = credentials.split(':');
 
-    // Us Sequelize to find the user by email
     const user = await User.findOne({ where: { email } });
 
     if (!user) {
       return res.status(404).json({ error: 'User not found' });
     }
 
-    // Using Sequelize to find the assignment by its ID
     const assignment = await Assignment.findOne({ where: { id } });
 
     if (!assignment) {
@@ -153,7 +151,10 @@ app.put('/v1/assignments/:id', basicAuth, async (req, res) => {
 
     const { name, points, num_of_attempts, deadline } = req.body;
 
-    // Updating the assignment with the new data
+    if (!name || !points || !num_of_attempts || !deadline) {
+      return res.status(400).json({ error: 'Bad Request' });
+    }
+
     await assignment.update({
       name,
       points,
@@ -161,12 +162,13 @@ app.put('/v1/assignments/:id', basicAuth, async (req, res) => {
       deadline,
     });
 
-    res.status(200).json(assignment);
+    res.status(204).send();
   } catch (error) {
     console.error('Error:', error);
     res.status(500).json({ error: 'Unable to update assignment' });
   }
 });
+
 
 // Route to delete an assignment by ID
 app.delete('/v1/assignments/:id', basicAuth, async (req, res) => {
@@ -196,7 +198,7 @@ app.delete('/v1/assignments/:id', basicAuth, async (req, res) => {
     const assignmentLink = await Assignment_links.findOne({ where: { id: concatenatedId } });
 
     if (!assignmentLink) {
-      return res.status(403).json({ error: 'You are not authorized to delete this assignment' });
+      return res.status(401).json({ error: 'Unauthorized' });
     }
 
     // Deleting the assignment from the database
@@ -204,14 +206,15 @@ app.delete('/v1/assignments/:id', basicAuth, async (req, res) => {
 
     await assignmentLink.destroy();
 
-    res.status(200).json({ message: 'Assignment and Assignment_links record deleted successfully' });
+    res.status(204).send();
   } catch (error) {
     console.error('Error:', error);
     res.status(500).json({ error: 'Unable to delete assignment' });
   }
 });
 
-app.patch('/v1/assignments/:id', basicAuth, async (req, res) => {
+
+app.patch('', basicAuth, async (req, res) => {
   try {
     res.status(405).json({ error: 'Method Not Allowed: Use PUT method to update assignments' });
   } catch (error) {
